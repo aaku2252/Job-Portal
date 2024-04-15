@@ -1,9 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html data-theme="dim" lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Recruit</title>
+        <link
+            rel="shortcut icon"
+            href="./images/recruitment.png"
+            type="image/x-icon" />
         <link
             rel="shortcut icon"
             href="images/recruitment"
@@ -11,10 +15,7 @@
         <link rel="stylesheet" href="style/output.css" />
     </head>
     <body>
-        <p>Recruiter</p>
-        <%-body%>
-
-        <script src="./node_modules/preline/dist/preline.js"></script>
-        <script src="script/darkMode.js"></script>
+        <div class="navbar"><%-include('header') %></div>
+        <%- body%>
     </body>
 </html>

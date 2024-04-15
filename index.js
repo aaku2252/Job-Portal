@@ -15,7 +15,7 @@ app.get("/", (req, res) => {
     res.render("userContent", { layout: "userLayout" });
 });
 app.get("/recruit", (req, res) => {
-    res.render("recruiterLayout.ejs");
+    res.render("recruiterContent", { layout: "recruiterLayout" });
 });
 
 export { app };
