@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="style/output.css" />
     </head>
     <body>
-        <div class="navbar"><%-include('header') %></div>
+        <div class="navbar"><%- include('header',{ user:"user" }) %></div>
         <%- body%>
     </body>
 </html>
