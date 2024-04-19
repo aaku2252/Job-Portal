@@ -1,8 +1,18 @@
 <div class="container flex w-[100%] justify-center mt-[50px]">
     <input
         type="text"
-        placeholder="Type here"
+        placeholder="Job Title"
         class="input input-bordered w-full max-w-xs mr-4" />
+    <input
+        type="text"
+        placeholder="Country"
+        class="input input-bordered w-full max-w-xs mr-4" />
+    <select class="select select-bordered w-full max-w-xs">
+        <option disabled selected>Gender</option>
+        <option>Male</option>
+        <option>Female</option>
+    </select>
+
     <button class="btn">Find Jobs</button>
 </div>
 <div class="overflow-x-auto mx-20">
@@ -10,129 +20,55 @@
         <!-- head -->
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Job</th>
-                <th>Favorite Color</th>
-                <th></th>
+                <th>Role</th>
+                <th>Gender</th>
+                <th>Description</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
             <!-- row 1 -->
+            <% jobs.forEach(data=>{ %>
             <tr>
                 <td>
                     <div class="flex items-center gap-3">
                         <div class="avatar">
                             <div class="mask mask-squircle w-12 h-12">
-                                <img
-                                    src="./images/portrait.jpg"
-                                    alt="Avatar Tailwind CSS Component" />
+                                <img src="<%= data.image %>" />
                             </div>
                         </div>
                         <div>
-                            <div class="font-bold">Hart Hagerty</div>
-                            <div class="text-sm opacity-50">United States</div>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    Zemlak, Daniel and Leannon
-                    <br />
-                    <span class="badge badge-ghost badge-sm"
-                        >Desktop Support Technician</span
-                    >
-                </td>
-                <td>Purple</td>
-                <th>
-                    <button class="btn btn-xs">Apply</button>
-                </th>
-            </tr>
-            <!-- row 2 -->
-            <tr>
-                <td>
-                    <div class="flex items-center gap-3">
-                        <div class="avatar">
-                            <div class="mask mask-squircle w-12 h-12">
-                                <img
-                                    src="./images/portrait.jpg"
-                                    alt="Avatar Tailwind CSS Component" />
+                            <div class="font-bold"><%=data.role%></div>
+                            <div class="text-sm opacity-50">
+                                <%=data.location%>
                             </div>
                         </div>
-                        <div>
-                            <div class="font-bold">Brice Swyre</div>
-                            <div class="text-sm opacity-50">China</div>
-                        </div>
                     </div>
                 </td>
-                <td>
-                    Carroll Group
-                    <br />
-                    <span class="badge badge-ghost badge-sm"
-                        >Tax Accountant</span
-                    >
-                </td>
-                <td>Red</td>
+                <td><%=data.gender%></td>
+                <td><%=data.desc%></td>
                 <th>
-                    <button class="btn btn-xs">Apply</button>
+                    <button class="btn btn-outline">Apply</button>
                 </th>
+                <td>
+                    <button class="btn">
+                        <svg
+                            id="liked"
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-6 w-6"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                        </svg>
+                    </button>
+                </td>
             </tr>
-            <!-- row 3 -->
-            <tr>
-                <td>
-                    <div class="flex items-center gap-3">
-                        <div class="avatar">
-                            <div class="mask mask-squircle w-12 h-12">
-                                <img
-                                    src="./images/portrait.jpg"
-                                    alt="Avatar Tailwind CSS Component" />
-                            </div>
-                        </div>
-                        <div>
-                            <div class="font-bold">Marjy Ferencz</div>
-                            <div class="text-sm opacity-50">Russia</div>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    Rowe-Schoen
-                    <br />
-                    <span class="badge badge-ghost badge-sm"
-                        >Office Assistant I</span
-                    >
-                </td>
-                <td>Crimson</td>
-                <th>
-                    <button class="btn btn-xs">Apply</button>
-                </th>
-            </tr>
-            <!-- row 4 -->
-            <tr>
-                <td>
-                    <div class="flex items-center gap-3">
-                        <div class="avatar">
-                            <div class="mask mask-squircle w-12 h-12">
-                                <img
-                                    src="./images/portrait.jpg"
-                                    alt="Avatar Tailwind CSS Component" />
-                            </div>
-                        </div>
-                        <div>
-                            <div class="font-bold">Yancy Tear</div>
-                            <div class="text-sm opacity-50">Brazil</div>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    Wyman-Ledner
-                    <br />
-                    <span class="badge badge-ghost badge-sm"
-                        >Community Outreach Specialist</span
-                    >
-                </td>
-                <td>Indigo</td>
-                <th>
-                    <button class="btn btn-xs">Apply</button>
-                </th>
-            </tr>
+            <%})%>
         </tbody>
     </table>
 </div>
