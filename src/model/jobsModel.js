@@ -2,7 +2,7 @@ import fs from "fs";
 
 const likedJobs = [];
 
-export default class JobData {
+export default class JobModel {
     static getJobData() {
         const filePath = new URL(
             "../../public/jobdata/MOCK_DATA.json",
@@ -15,7 +15,5 @@ export default class JobData {
         );
     }
 
-    static setLikedJobs() {
-        
-    }
+    static setLikedJobs() {}
 }

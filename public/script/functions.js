@@ -1,7 +1,11 @@
-const liked = document.querySelectorAll("#liked").forEach((x) =>
+const liked = document.querySelectorAll("#liked").forEach((x) => {
+    const svg = x.querySelector("svg");
     x.addEventListener("click", (e) => {
-        e.target.getAttribute("fill") == "none"
-            ? e.target.setAttribute("fill", "currentColor")
-            : e.target.setAttribute("fill", "none");
-    })
-);
+        svg.getAttribute("fill") == "none"
+            ? svg.setAttribute("fill", "red")
+            : svg.setAttribute("fill", "none");
+        svg.getAttribute("stroke") == "currentColor"
+            ? svg.setAttribute("stroke", "red")
+            : svg.setAttribute("stroke", "currentColor");
+    });
+});

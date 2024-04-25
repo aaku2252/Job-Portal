@@ -1,20 +1,20 @@
-<div class="container flex w-[100%] justify-center mt-[50px]">
+<div class="flex w-[100%] justify-center mt-[50px]">
     <input
         type="text"
         placeholder="Job Title"
-        class="input input-bordered w-full max-w-xs mr-4" />
+        class="input input-bordered w-full max-w-xs mx-2" />
     <input
         type="text"
         placeholder="Country"
-        class="input input-bordered w-full max-w-xs mr-4" />
-    <select class="select select-bordered w-full max-w-xs">
+        class="input input-bordered w-full max-w-xs mx-2" />
+    <select class="select select-bordered w-full max-w-xs mx-2">
         <option disabled selected>Gender</option>
         <option>Male</option>
         <option>Female</option>
         <option>Others</option>
     </select>
 
-    <button class="btn">Find Jobs</button>
+    <button class="btn btn-outline mx-2">Find Jobs</button>
 </div>
 <div class="overflow-x-auto mx-20">
     <table class="table">
@@ -52,9 +52,8 @@
                     <button class="btn btn-outline">Apply</button>
                 </th>
                 <td>
-                    <button class="btn">
+                    <button class="btn" id="liked">
                         <svg
-                            id="liked"
                             xmlns="http://www.w3.org/2000/svg"
                             class="h-6 w-6"
                             fill="none"
