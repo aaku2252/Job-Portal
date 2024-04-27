@@ -52,7 +52,10 @@
                     <button class="btn btn-outline">Apply</button>
                 </th>
                 <td>
-                    <button class="btn" id="liked">
+                    <button
+                        class="btn"
+                        id="<%= data.id %>"
+                        onclick="liked('<%= data.id %>')">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             class="h-6 w-6"

@@ -1,7 +1,5 @@
 import fs from "fs";
 
-const likedJobs = [];
-
 export default class JobModel {
     static getJobData() {
         const filePath = new URL(
@@ -15,5 +13,13 @@ export default class JobModel {
         );
     }
 
-    static setLikedJobs() {}
+    static setLikedJobs(id) {
+        const filePath = new URL(
+            "../../public/jobdata/liked.json",
+            import.meta.url
+        );
+        const liked = JSON.parse(fs.readFileSync(filePath, "utf-8"));
+        liked.push(id);
+        fs.writeFileSync(filePath, JSON.stringify(liked));
+    }
 }
