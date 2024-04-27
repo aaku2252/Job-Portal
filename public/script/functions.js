@@ -1,7 +1,7 @@
 function liked(id) {
     const svg = document.getElementById(id).querySelector("svg");
     svg.getAttribute("fill") == "none"
-        ? fetch("/liked" + id, {
+        ? fetch("/liked/" + id, {
               method: "POST",
           })
               .then((res) => {
@@ -14,7 +14,7 @@ function liked(id) {
               .then((res) => {
                   console.log(res);
               })
-        : fetch("/unliked" + id, {
+        : fetch("/unLiked/" + id, {
               method: "POST",
           })
               .then((res) => {

@@ -17,13 +17,10 @@ app.set("view engine", "ejs");
 app.set("views", path.join(path.resolve(), "src", "view"));
 
 app.get("/", UserController.homeJobPage);
-app.post("/liked:id", UserController.likedJobs);
-app.post("/unliked:id", UserController.unlikedJobs);
+app.post("/liked/:id", UserController.likedJobs);
+app.post("/unLiked/:id", UserController.unLikedJobs);
 
-app.get("/recruit", (req, res) => {
-    res.render("recruiterContent", {
-        layout: "recruiterLayout",
-    });
-});
+app.get("/login", UserController.login);
+app.get("/signup", UserController.signup);
 
 export { app };
