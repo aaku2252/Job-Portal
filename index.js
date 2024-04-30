@@ -5,6 +5,7 @@ import ejsLayouts from "express-ejs-layouts";
 
 //> controller files import
 import UserController from "./src/controller/userController.js";
+import JobController from "./src/controller/jobController.js";
 
 const app = express();
 
@@ -17,8 +18,8 @@ app.set("view engine", "ejs");
 app.set("views", path.join(path.resolve(), "src", "view"));
 
 app.get("/", UserController.homeJobPage);
-app.post("/liked/:id", UserController.likedJobs);
-app.post("/unLiked/:id", UserController.unLikedJobs);
+app.post("/liked/:id", JobController.likedJobs);
+app.post("/unLiked/:id", JobController.unLikedJobs);
 
 app.get("/login", UserController.login);
 app.get("/signup", UserController.signup);
