@@ -10,7 +10,7 @@
         <form class="space-y-6" action="/login" method="POST">
             <div>
                 <label for="email" class="block text-sm font-medium leading-6"
-                    >Email address</label
+                    >Email</label
                 >
                 <div class="mt-2">
                     <input
@@ -19,7 +19,7 @@
                         type="email"
                         autocomplete="email"
                         required
-                        class="block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6" />
+                        class="block w-full input input-bordered" />
                 </div>
             </div>
 
@@ -38,14 +38,32 @@
                         type="password"
                         autocomplete="current-password"
                         required
-                        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6" />
+                        class="block w-full input input-bordered" />
                 </div>
+                <div class="mt-2">
+                    <input
+                        id="show-password"
+                        type="checkbox"
+                        class="checkbox"
+                        onclick="showPassword()" />
+                    <label
+                        for="show-password"
+                        class="text-sm font-medium leading-6">
+                        Show Password</label
+                    >
+                </div>
+            </div>
+            <div>
+                <% if (wrongUser) { %>
+                <p class="text-secondary">Email or password is incorrect.</p>
+                <%}%>
             </div>
 
             <div>
                 <button
                     type="submit"
-                    class="flex w-full justify-center btn btn-outline">
+                    class="flex w-full justify-center btn btn-outline"
+                    id="signin">
                     Sign In
                 </button>
             </div>

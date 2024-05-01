@@ -1,4 +1,5 @@
 import JobModel from "../model/jobsModel.js";
+import UserModel from "../model/userModel.js";
 
 export default class UserController {
     static homeJobPage(req, res) {
@@ -8,14 +9,29 @@ export default class UserController {
             jobs: jobs,
         });
     }
-    static login(req, res) {
+    static loginPage(req, res) {
         res.render("login.ejs", {
             layout: "userLayout.ejs",
+            wrongUser: false,
         });
     }
-    static signup(req, res) {
+    static signupPage(req, res) {
         res.render("signup.ejs", {
             layout: "userLayout.ejs",
         });
     }
+    static loginUser(req, res) {
+        const { email, password } = req.body;
+        const userCheck = UserModel.userLoginCheck(email, password);
+        console.log(userCheck);
+        if (userCheck) {
+            res.redirect("/");
+        } else {
+            res.render("login.ejs", {
+                layout: "userLayout.ejs",
+                wrongUser: !userCheck,
+            });
+        }
+    }
+    static signupUser(req, res) {}
 }

@@ -6,75 +6,71 @@
         </div>
         <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
             <div class="col-span-full">
-                <label for="photo" class="block text-sm font-medium leading-6"
-                    >Photo</label
+                <label for="image" class="block text-sm font-medium leading-6"
+                    >Image</label
                 >
                 <div class="mt-2 flex items-center gap-x-3">
                     <div class="mt-2">
                         <input
                             type="file"
-                            name="first-name"
-                            class="file-input file-input-bordered border-2 focus:outline-1 w-full max-w-xs border" />
+                            id="image"
+                            name="image"
+                            class="file-input file-input-bordered border-2 focus:outline-1 w-full max-w-xs" />
                     </div>
                 </div>
             </div>
             <div class="sm:col-span-3">
                 <label
-                    for="first-name"
-                    class="block text-sm font-medium leading-6"
-                    >First name</label
-                >
+                    for="first_name"
+                    class="block text-sm font-medium leading-6">
+                    First name<sup>*</sup>
+                </label>
                 <div class="mt-2">
                     <input
                         type="text"
-                        name="first-name"
-                        id="first-name"
+                        name="first_name"
+                        id="first_name"
                         class="input input-bordered border-2 focus:outline-1 w-full max-w-xs" />
                 </div>
             </div>
 
             <div class="sm:col-span-3">
                 <label
-                    for="last-name"
+                    for="last_name"
                     class="block text-sm font-medium leading-6"
-                    >Last name</label
+                    >Last name<sup>*</sup></label
                 >
                 <div class="mt-2">
                     <input
                         type="text"
-                        name="last-name"
-                        id="last-name"
-                        autocomplete="family-name"
+                        name="last_name"
+                        id="last_name"
                         class="block w-full input input-bordered border-2 focus:outline-1 max-w-xs" />
                 </div>
             </div>
 
             <div class="sm:col-span-4">
                 <label for="email" class="block text-sm font-medium leading-6"
-                    >Email address</label
+                    >Email<sup>*</sup></label
                 >
                 <div class="mt-2">
                     <input
                         id="email"
                         name="email"
                         type="email"
-                        autocomplete="email"
                         class="block w-full input input-bordered border-2 focus:outline-1" />
                 </div>
             </div>
 
             <div class="col-span-full">
-                <label
-                    for="street-address"
-                    class="block text-sm font-medium leading-6"
+                <label for="address" class="block text-sm font-medium leading-6"
                     >Address</label
                 >
                 <div class="mt-2">
                     <input
                         type="text"
-                        name="street-address"
-                        id="street-address"
-                        autocomplete="street-address"
+                        name="address"
+                        id="address"
                         class="block w-full input input-bordered border-2 focus:outline-1" />
                 </div>
             </div>
@@ -88,7 +84,6 @@
                         type="text"
                         name="city"
                         id="city"
-                        autocomplete="address-level2"
                         class="block w-full input input-bordered border-2 focus:outline-1" />
                 </div>
             </div>
@@ -109,16 +104,15 @@
 
             <div class="sm:col-span-2">
                 <label
-                    for="pin-code"
+                    for="pin_code"
                     class="block text-sm font-medium leading-6"
                     >PIN code</label
                 >
                 <div class="mt-2">
                     <input
                         type="text"
-                        name="pin-code"
-                        id="pin-code"
-                        autocomplete="postal-code"
+                        name="pin_code"
+                        id="pin_code"
                         class="block w-full input input-bordered border-2 focus:outline-1" />
                 </div>
             </div>
@@ -130,13 +124,27 @@
                     <textarea
                         id="about"
                         name="about"
-                        rows="4"
+                        rows="3"
                         class="textarea textarea-bordered w-full border-2 focus:outline-1"
                         placeholder="Bio"></textarea>
                 </div>
                 <p class="mt-3 text-sm leading-6">
                     Write a few sentences about yourself.
                 </p>
+            </div>
+            <div class="sm:col-span-3">
+                <label
+                    for="password"
+                    class="block text-sm font-medium leading-6">
+                    Password
+                </label>
+                <div class="mt-2">
+                    <input
+                        type="password"
+                        name="password"
+                        id="password"
+                        class="input input-bordered border-2 focus:outline-1" />
+                </div>
             </div>
         </div>
 
@@ -145,16 +153,19 @@
 
             <div class="flex items-center gap-x-3">
                 <input
-                    id="push-notification"
-                    name="push-notification"
+                    id="push_notification"
+                    name="push_notification"
                     type="checkbox"
                     class="checkbox" />
                 <label
-                    for="push-nothing"
+                    for="push_notification"
                     class="block text-sm font-medium leading-6"
                     >Get Notification on whatsapp.</label
                 >
             </div>
+        </div>
+        <div>
+            <p>Fields marked with <sup>*</sup> are compulsory to fill.</p>
         </div>
 
         <div class="mt-6 flex items-center justify-end gap-x-6">
@@ -165,7 +176,7 @@
                 Cancel
             </button>
             <button type="submit" id="save" class="btn btn-outline btn-primary">
-                Save
+                Update
             </button>
         </div>
     </form>
