@@ -7,6 +7,8 @@ import session from "express-session";
 //> controller files import
 import UserController from "./src/controller/userController.js";
 import JobController from "./src/controller/jobController.js";
+//> middleware files import
+import validateRequest from "./src/middleware/validationMIddleware.js";
 
 const app = express();
 
@@ -26,5 +28,6 @@ app.get("/login", UserController.loginPage);
 app.get("/signup", UserController.signupPage);
 
 app.post("/login", UserController.loginUser);
+app.post("/signup", validateRequest, UserController.signupUser);
 
 export { app };

@@ -1,15 +1,27 @@
 [
-    {
-        "image": "",
-        "first-name": "Akash",
-        "last-name": "Choudhary",
-        "email": "Akash@gmail.com",
-        "Address": "Korwa",
-        "City": "Amethi",
-        "State": "UP",
-        "pin-code": "227412",
-        "about": "In search of excellence.",
-        "push-notifications": true,
-        "password": "123"
-    }
+  {
+    "image": "",
+    "first-name": "Akash",
+    "last-name": "Choudhary",
+    "email": "Akash@gmail.com",
+    "Address": "Korwa",
+    "City": "Amethi",
+    "State": "UP",
+    "pin-code": "227412",
+    "about": "In search of excellence.",
+    "push-notification": true,
+    "password": "123"
+  },
+  {
+    "image": "",
+    "first_name": "Akash",
+    "last_name": "Choudhary",
+    "email": "A@gmail.com",
+    "address": "",
+    "city": "",
+    "state": "",
+    "pin_code": "",
+    "about": "",
+    "password": "123456"
+  }
 ]

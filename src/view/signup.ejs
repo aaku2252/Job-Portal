@@ -1,8 +1,14 @@
 <div class="mx-auto w-[60vw] p-8 shadow-2xl my-4 rounded-3xl text-base">
-    <form>
+  
+    <form action ="/signup" method ="POST" >
         <div>
             <h2 class="font-semibold text-2xl leading-7 pb-4">Profile</h2>
             <hr />
+        </div>
+        <div class = "mt-4">
+            <% if (err) { %>
+            <p class="text-secondary">Error: <%=err%></p>
+            <%}%>
         </div>
         <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
             <div class="col-span-full">
@@ -136,7 +142,7 @@
                 <label
                     for="password"
                     class="block text-sm font-medium leading-6">
-                    Password
+                    Password <sup>*</sup>
                 </label>
                 <div class="mt-2">
                     <input
