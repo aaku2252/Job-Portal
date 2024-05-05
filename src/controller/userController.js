@@ -35,7 +35,15 @@ export default class UserController {
     }
   }
   static signupUser(req, res) {
-    UserModel.userSignup(req.body);
+    const result = UserModel.userSignup(req.body);
+    console.log("result", result);
+    if (!result.action) {
+      return res.render("signup.ejs", {
+        layout: "userLayout.ejs",
+        err: result.msg,
+      });
+    }
+    console.log("User created and home page is rendered");
     res.redirect("/");
   }
 }

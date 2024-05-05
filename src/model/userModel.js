@@ -16,25 +16,46 @@ export default class UserModel {
   }
   static userSignup(val) {
     const data = JSON.parse(fs.readFileSync(filePath, "utf8"));
-    data.push({
-      image: val.image,
-      first_name: val.first_name,
-      last_name: val.last_name,
-      email: val.email,
-      address: val.address,
-      city: val.city,
-      state: val.state,
-      pin_code: val.pin_code,
-      about: val.about,
-      password: val.password,
-      push_notification: val.push_notification,
-    });
-    fs.writeFile(filePath, JSON.stringify(data), (err, file) => {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log("File updated");
-      }
-    });
+    let result = { action: true, msg: "" };
+    let notification = false;
+    if (val.push_notification) {
+      notification = true;
+    }
+
+    if (data.length != 0) {
+      data.forEach((element) => {
+        if (element.email === val.email) {
+          result = {
+            action: false,
+            msg: "This email already exists.",
+          };
+          return;
+        }
+      });
+    }
+    if (result.action) {
+      data.push({
+        image: val.image,
+        first_name: val.first_name,
+        last_name: val.last_name,
+        email: val.email,
+        address: val.address,
+        city: val.city,
+        state: val.state,
+        pin_code: val.pin_code,
+        about: val.about,
+        password: val.password,
+        push_notification: notification,
+      });
+      fs.writeFile(filePath, JSON.stringify(data), (err, file) => {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log("User created.");
+        }
+      });
+    }
+
+    return result;
   }
 }
