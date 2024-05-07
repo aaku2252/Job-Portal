@@ -15,7 +15,9 @@
         <link rel="stylesheet" href="style/output.css" />
     </head>
     <body>
-        <div class="navbar"><%- include('header',{ user:"user" }) %></div>
+        <div class="navbar w-[100%] m-0 p-0">
+            <%- include('header',{ user:"user" }) %>
+        </div>
         <%- body%>
         <script src="./script/functions.js"></script>
     </body>

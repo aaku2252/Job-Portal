@@ -3,6 +3,7 @@ import ejs from "ejs";
 import path from "path";
 import ejsLayouts from "express-ejs-layouts";
 import session from "express-session";
+import dotenv from "dotenv";
 
 //> controller files import
 import UserController from "./src/controller/userController.js";
@@ -14,6 +15,15 @@ const app = express();
 
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
+dotenv.config();
+app.use(
+    session({
+        secret: process.env.key,
+        resave: false,
+        saveUninitialized: true,
+        cookie: { secure: false },
+    })
+);
 
 app.use(ejsLayouts);
 app.use("/node_modules", express.static("node_modules"));

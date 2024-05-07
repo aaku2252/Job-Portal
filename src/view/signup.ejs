@@ -1,11 +1,10 @@
 <div class="mx-auto w-[60vw] p-8 shadow-2xl my-4 rounded-3xl text-base">
-  
-    <form action ="/signup" method ="POST" >
+    <form action="/signup" method="POST">
         <div>
             <h2 class="font-semibold text-2xl leading-7 pb-4">Profile</h2>
             <hr />
         </div>
-        <div class = "mt-4">
+        <div class="mt-4">
             <% if (err) { %>
             <p class="text-secondary">Error: <%=err%></p>
             <%}%>
@@ -152,22 +151,22 @@
                         class="input input-bordered border-2 focus:outline-1" />
                 </div>
             </div>
-           <div class ="col-span-full mb-4">
-            <h2 class="font-semibold leading-7 mb-4">Notifications</h2>
+            <div class="col-span-full mb-4">
+                <h2 class="font-semibold leading-7 mb-4">Notifications</h2>
 
-            <div class="flex items-center gap-x-3">
-                <input
-                    id="push_notification"
-                    name="push_notification"
-                    type="checkbox"
-                    class="checkbox" />
-                <label
-                    for="push_notification"
-                    class="block text-sm font-medium leading-6"
-                    >Get Notification on whatsapp.</label
-                >
+                <div class="flex items-center gap-x-3">
+                    <input
+                        id="push_notification"
+                        name="push_notification"
+                        type="checkbox"
+                        class="checkbox" />
+                    <label
+                        for="push_notification"
+                        class="block text-sm font-medium leading-6"
+                        >Get Notification on whatsapp.</label
+                    >
+                </div>
             </div>
-           </div>
         </div>
 
         <div>
@@ -182,7 +181,7 @@
                 Cancel
             </button>
             <button type="submit" id="save" class="btn btn-outline btn-primary">
-                Update
+                Sign Up
             </button>
         </div>
     </form>
