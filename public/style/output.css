@@ -2929,11 +2929,6 @@ html:has(.drawer-toggle:checked) {
   letter-spacing: -0.025em;
 }
 
-.text-base-100 {
-  --tw-text-opacity: 1;
-  color: var(--fallback-b1,oklch(var(--b1)/var(--tw-text-opacity)));
-}
-
 .text-base-300 {
   --tw-text-opacity: 1;
   color: var(--fallback-b3,oklch(var(--b3)/var(--tw-text-opacity)));
