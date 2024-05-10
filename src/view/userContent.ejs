@@ -1,20 +1,24 @@
 <div class="flex w-[100%] justify-center mt-[50px]">
-    <input
+    <form action="/search" method = "post">
+
+        <input
         type="text"
         placeholder="Job Title"
+        name = "role"
         class="input input-bordered w-full max-w-xs mx-2" />
-    <input
+        <input
         type="text"
         placeholder="Country"
+        name="location"
         class="input input-bordered w-full max-w-xs mx-2" />
-    <select class="select select-bordered w-full max-w-xs mx-2">
-        <option disabled selected>Gender</option>
-        <option>Male</option>
-        <option>Female</option>
-        <option>Others</option>
-    </select>
-
-    <button class="btn btn-outline mx-2">Find Jobs</button>
+        <select name='gender' class="select select-bordered w-full max-w-xs mx-2">
+            <option disabled selected value = "">Gender</option>
+            <option value="Male"> Male</option>
+            <option value="Female">Female</option>
+        </select>
+        
+        <button type="submit" class="btn btn-outline mx-2">Find Jobs</button>
+    </form>
 </div>
 <div class="overflow-x-auto mx-20">
     <table class="table">
@@ -53,7 +57,7 @@
                     <button
                         class="btn"
                         id="<%= data.id %>"
-                        onclick="liked('<%= data.id %>',req)">
+                        onclick="liked('<%= data.id %>')">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             class="h-6 w-6"
