@@ -1,7 +1,7 @@
 import fs from "fs";
 import { v4 as id } from "uuid";
 
-console.log();
+
 const filePath = new URL("../../public/user/userdata.json", import.meta.url);
 export default class UserModel {
     static userLoginCheck(email, password) {

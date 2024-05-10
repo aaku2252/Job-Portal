@@ -13,26 +13,38 @@ export default class JobModel {
         );
     }
 
-    static setLikedJobs(id) {
+    static setLikedJobs(req) {
+        const id = req.params.id;
         const filePath = new URL(
             "../../public/jobdata/liked.json",
             import.meta.url
         );
+
         const liked = JSON.parse(fs.readFileSync(filePath, "utf-8"));
-        if (!liked.includes(id)) {
-            liked.push(id);
-            fs.writeFileSync(filePath, JSON.stringify(liked));
+        console.log(req.session.email);
+        if (req.session.email != undefined) {
+            if (liked.hasOwnProperty(req.session.email)) {
+                liked[req.session.email].push(id);
+            } else {
+                liked[req.session.email] = [id];
+            }
         }
+
+        fs.writeFileSync(filePath, JSON.stringify(liked));
     }
 
-    static removeLikedJob(id) {
+    static removeLikedJob(req) {
+        const id = req.params.id;
+
         const filePath = new URL(
             "../../public/jobdata/liked.json",
             import.meta.url
         );
         const liked = JSON.parse(fs.readFileSync(filePath, "utf-8"));
-        if (liked.includes(id)) {
-            const newLiked = liked.filter((x) => x !== id);
+
+        if (liked[req.session.email].includes(id)) {
+            const newLiked = liked[req.session.email].filter((x) => x !== id);
+            liked[req.session.email] = newLiked;
             fs.writeFileSync(filePath, JSON.stringify(newLiked));
         }
     }

@@ -4,6 +4,7 @@ import path from "path";
 import ejsLayouts from "express-ejs-layouts";
 import session from "express-session";
 import dotenv from "dotenv";
+import cookieParser from "cookie-parser";
 
 //> controller files import
 import UserController from "./src/controller/userController.js";
@@ -16,14 +17,19 @@ const app = express();
 
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 dotenv.config();
 app.use(
-  session({
-    secret: process.env.key,
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: false },
-  }),
+    session({
+        secret: process.env.key,
+        resave: false,
+        saveUninitialized: true,
+        cookie: {
+            secure: false,
+            httpOnly: true,
+            maxAge: 3600 * 24 * 60 * 60,
+        },
+    })
 );
 
 app.use(ejsLayouts);
@@ -37,7 +43,7 @@ app.post("/unLiked/:id", JobController.unLikedJobs);
 
 app.get("/login", UserController.loginPage);
 app.get("/signup", UserController.signupPage);
-app.get("/profile");
+app.get("/profile", auth);
 
 app.post("/login", UserController.loginUser);
 app.post("/logout", UserController.logoutUser);
