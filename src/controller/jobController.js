@@ -14,7 +14,7 @@ export default class JobController {
     const likedJobs = await JobModel.getLikedJobs();
     const login = req.session.email ? true : false;
     if (!login) {
-      return res.redirect("/");
+      return res.redirect("/login");
     }
     console.log("search Jobs");
     console.log(likedJobs);
@@ -30,11 +30,11 @@ export default class JobController {
       }
     }
     console.log(likedJobs);
-    // res.render("userContent", {
-    //   layout: "userLayout.ejs",
-    //   jobs: likedJobs,
-    //   login: login,
-    // });
+    res.render("userContent", {
+      layout: "userLayout.ejs",
+      jobs: likedJobs,
+      login: login,
+    });
   }
   static likedJobs(req, res) {
     JobModel.setLikedJobs(req);
@@ -44,5 +44,29 @@ export default class JobController {
   static unLikedJobs(req, res) {
     JobModel.removeLikedJob(req);
     res.status(200).send("Job removed from wishlist successfully.");
+  }
+  static searchJobs(req, res) {
+    const { role, location, gender } = req.body;
+    let jobs = JobModel.getJobData();
+    console.log(gender);
+
+    if (role != "") {
+      jobs = jobs.filter((x) => x.role == role);
+    }
+
+    if (location != "") {
+      jobs = jobs.filter((x) => x.location == location);
+    }
+
+    if (gender) {
+      jobs = jobs.filter((x) => x.gender == gender);
+    }
+
+    const login = req.session.email ? true : false;
+    res.render("userContent", {
+      layout: "userLayout.ejs",
+      jobs: jobs,
+      login: login,
+    });
   }
 }

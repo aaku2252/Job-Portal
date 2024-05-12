@@ -39,8 +39,11 @@ app.set("views", path.join(path.resolve(), "src", "view"));
 
 app.get("/", JobController.homeJobPage);
 app.get("/likedJobs", JobController.favouriteJobs);
+
 app.post("/liked/:id", JobController.likedJobs);
 app.post("/unLiked/:id", JobController.unLikedJobs);
+
+app.post("/searchJobs", JobController.searchJobs);
 
 app.get("/login", UserController.loginPage);
 app.get("/signup", UserController.signupPage);
