@@ -20,16 +20,15 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 dotenv.config();
 app.use(
-  session({
-    secret: process.env.key,
-    resave: false,
-    saveUninitialized: true,
-    cookie: {
-      secure: false,
-      httpOnly: true,
-      maxAge: 3600 * 24 * 60 * 60,
-    },
-  }),
+    session({
+        secret: process.env.key,
+        resave: false,
+        saveUninitialized: true,
+        cookie: {
+            secure: false,
+            maxAge: 3600 * 24 * 60 * 60,
+        },
+    })
 );
 
 app.use(ejsLayouts);
@@ -48,9 +47,9 @@ app.post("/searchJobs", JobController.searchJobs);
 app.get("/login", UserController.loginPage);
 app.get("/signup", UserController.signupPage);
 app.get("/profile", auth);
+app.get("/logout", UserController.logoutUser);
 
 app.post("/login", UserController.loginUser);
-app.post("/logout", UserController.logoutUser);
 app.post("/signup", validateRequest, UserController.signupUser);
 
 export { app };
